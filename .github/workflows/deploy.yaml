@@ -55,11 +55,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      
       - name: Verify Auth
-        run: yes | cdf auth verify
-
+        run: |
+          rm -f .env
+          yes | cdf auth verify
+      
+      
       - name: Build
-        run: cdf build --env=${{ matrix.environment }}
-
+        run: |
+          rm -f .env
+          cdf build --env=${{ matrix.environment }}
+      
       - name: Deploy
-        run: cdf deploy --env=${{ matrix.environment }}
+        run: |
+          rm -f .env
+          cdf deploy --env=${{ matrix.environment }}
