@@ -1,5 +1,5 @@
-name: data_developer
-sourceId: {{ data_developer_source_id }}
+name: data_pipeline_oee
+sourceId: {{ data_pipeline_oee_source_id }}
 capabilities:
   - datasetsAcl:
       actions: [READ]
