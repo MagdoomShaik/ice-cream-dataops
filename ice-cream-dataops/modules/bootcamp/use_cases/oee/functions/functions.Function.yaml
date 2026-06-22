@@ -1,6 +1,7 @@
 - name: OEE TimeSeries
   externalId: oee_timeseries
-  owner: Bootcamp Team
+  space: oee_ts_space  
+  owner: CDF Bootcamp Team
   description: Function to calculate OEE
   metadata:
     version: "1.0"
