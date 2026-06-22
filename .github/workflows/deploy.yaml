@@ -61,16 +61,18 @@ jobs:
     
       - name: Verify Auth
         run: |
-          export CDF_DISABLE_ENV_FILE=true
-          yes | cdf auth verify
-    
+          cdf auth verify \
+            --client-id "$IDP_CLIENT_ID" \
+            --client-secret "$IDP_CLIENT_SECRET" \
+            --token-url "$IDP_TOKEN_URL" \
+            --project "$CDF_PROJECT"
+          
       - name: Build
         run: |
-          export CDF_DISABLE_ENV_FILE=true
           cdf build --env=${{ matrix.environment }}
-    
+      
       - name: Deploy
         run: |
-          export CDF_DISABLE_ENV_FILE=true
           cdf deploy --env=${{ matrix.environment }}
+      
     
