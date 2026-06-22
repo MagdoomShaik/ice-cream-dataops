@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: cognite/toolkit:0.6.53
+      image: cognite/toolkit:0.7.0
 
     strategy:
       matrix:
