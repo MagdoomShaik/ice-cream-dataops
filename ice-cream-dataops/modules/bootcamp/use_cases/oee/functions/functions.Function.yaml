@@ -1,8 +1,8 @@
-- name: OEE TimeSeries
+  - name: OEE TimeSeries
   externalId: oee_timeseries
-  owner: CDF Bootcamp Team
+  owner: Bootcamp Team
   description: Function to calculate OEE
   metadata:
-      version: "1.0"
+    version: "1.0"
   runtime: py311
   functionPath: ./handler.py
