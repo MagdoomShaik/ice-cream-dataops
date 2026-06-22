@@ -59,13 +59,7 @@ jobs:
         run: |
           export CDF_DISABLE_ENV_FILE=true
     
-      - name: Verify Auth
-        run: |
-          cdf auth verify \
-            --client-id "$IDP_CLIENT_ID" \
-            --client-secret "$IDP_CLIENT_SECRET" \
-            --token-url "$IDP_TOKEN_URL" \
-            --project "$CDF_PROJECT"
+
           
       - name: Build
         run: |
