@@ -51,11 +51,26 @@ jobs:
       ICAPI_EXTRACTORS_CLIENT_SECRET: ${{ secrets.ICAPI_EXTRACTORS_CLIENT_SECRET }}
       ICAPI_EXTRACTORS_SOURCE_ID: ${{ vars.ICAPI_EXTRACTORS_SOURCE_ID }}
  
+
     steps:
       - uses: actions/checkout@v4
-      - name: Verify and Update Toolkit Authorization
-        run: yes | cdf auth verify
-      - name: Build Toolkit Configurations
-        run: cdf build --env=${{ matrix.environment }}
-      - name: Deploy Toolkit Configurations
-        run: cdf deploy --env=${{ matrix.environment }}
+    
+      - name: Disable .env loading
+        run: |
+          export CDF_DISABLE_ENV_FILE=true
+    
+      - name: Verify Auth
+        run: |
+          export CDF_DISABLE_ENV_FILE=true
+          yes | cdf auth verify
+    
+      - name: Build
+        run: |
+          export CDF_DISABLE_ENV_FILE=true
+          cdf build --env=${{ matrix.environment }}
+    
+      - name: Deploy
+        run: |
+          export CDF_DISABLE_ENV_FILE=true
+          cdf deploy --env=${{ matrix.environment }}
+    
