@@ -1,4 +1,4 @@
-  - name: OEE TimeSeries
+- name: OEE TimeSeries
   externalId: oee_timeseries
   owner: Bootcamp Team
   description: Function to calculate OEE
